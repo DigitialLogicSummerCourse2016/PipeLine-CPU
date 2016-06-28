@@ -5,8 +5,7 @@ module PP_CPU(
 	input uart_rx,
 	output [7:0] led,
 	output [11:0] digi,
-	output uart_tx,
-	output signal
+	output uart_tx
 	);
 	reg half_clk;
     always@(posedge clk or negedge reset)
@@ -17,5 +16,5 @@ module PP_CPU(
             half_clk<=~half_clk;
     end
     CPU C1(.reset(reset),.clk(half_clk),.switch(switch),.uart_rx(uart_rx),.led(led),.digi(digi),
-    	.uart_tx(uart_tx),.signal(signal));
+    	.uart_tx(uart_tx));
 endmodule
